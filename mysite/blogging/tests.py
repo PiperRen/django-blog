@@ -8,7 +8,7 @@ class PostTestCase(TestCase):
     fixtures = ['blogging_test_fixture.json', ]
 
     def setUp(self):
-        self.user = User.objects.get(pk=0)
+        self.user = User.objects.get(pk=1)
 
     def test_string_representation(self):
         expected = "This is a title"

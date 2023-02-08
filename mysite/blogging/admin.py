@@ -7,15 +7,16 @@ from blogging.models import Post, Category
 # admin.site.register(Category)
 
 
-# class CategoryInPost(admin.TabularInline):
-#     model = Category.posts
+class CategoryInline(admin.TabularInline):
+    model = Category.posts.through
 
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     model = Post
-    # inlines = [CategoryInPost,]
+    inlines = [CategoryInline,]
     fields = ('title', 'text', 'author', 'published_date')
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
